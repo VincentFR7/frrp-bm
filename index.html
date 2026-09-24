@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FranceRolePlay — Brigade Municipale | Reprise de la Direction</title>
+
+<meta
+  name="description"
+  content="Reprise de la Direction de la Brigade Municipale de Paris sur FranceRolePlay, le 25 septembre 2026 à 20h00."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Barlow:wght@400;500&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   FRANCE ROLEPLAY — BRIGADE MUNICIPALE
+   Page de reprise de la Direction
+   ========================================================= */
+
+:root{
+
+  --bg-image: url('fond.jpg');
+
+  --void:  #060B14;
+  --hull:  #0E1724;
+  --steel: #2B3C51;
+  --holo:  #5FC8F5;
+  --amber: #E8A33D;
+  --bone:  #E4EDF6;
+  --dim:   #8FA3B8;
+
+  --bevel:
+    polygon(
+      18px 0,
+      100% 0,
+      100% calc(100% - 18px),
+      calc(100% - 18px) 100%,
+      0 100%,
+      0 18px
+    );
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  background:var(--void);
+
+  color:var(--bone);
+
+  font-family:
+    'Barlow',
+    system-ui,
+    sans-serif;
+
+  font-size:17px;
+
+  line-height:1.6;
+
+  -webkit-font-smoothing:antialiased;
+}
+
+
+/* =========================================================
+   FOND
+   ========================================================= */
+
+.sky{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:-2;
+
+  background-image:var(--bg-image);
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-color:#08111E;
+}
+
+.sky::after{
+
+  content:'';
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+    radial-gradient(
+      120% 90% at 50% 8%,
+      rgba(95,200,245,.18),
+      transparent 55%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(6,11,20,.55) 0%,
+      rgba(6,11,20,.82) 55%,
+      var(--void) 100%
+    );
+}
+
+
+/* =========================================================
+   ÉTOILES
+   ========================================================= */
+
+.stars{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:-3;
+
+  background-image:
+
+    radial-gradient(
+      1.5px 1.5px at 18% 22%,
+      #fff,
+      transparent
+    ),
+
+    radial-gradient(
+      1px 1px at 62% 14%,
+      #cfe6f7,
+      transparent
+    ),
+
+    radial-gradient(
+      1.5px 1.5px at 84% 38%,
+      #fff,
+      transparent
+    ),
+
+    radial-gradient(
+      1px 1px at 33% 61%,
+      #bcd8ee,
+      transparent
+    ),
+
+    radial-gradient(
+      1px 1px at 72% 78%,
+      #fff,
+      transparent
+    ),
+
+    radial-gradient(
+      1.5px 1.5px at 9% 84%,
+      #dceaf7,
+      transparent
+    );
+
+  opacity:.7;
+}
+
+
+/* =========================================================
+   STRUCTURE
+   ========================================================= */
+
+.wrap{
+
+  width:min(1040px, 90vw);
+
+  margin:0 auto;
+}
+
+.hero{
+
+  min-height:100svh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  padding:88px 0 64px;
+}
+
+
+/* =========================================================
+   TITRE
+   ========================================================= */
+
+.mark{
+
+  font-family:'Chakra Petch',sans-serif;
+
+  font-weight:700;
+
+  font-size:
+    clamp(
+      3rem,
+      11vw,
+      7.5rem
+    );
+
+  line-height:.86;
+
+  letter-spacing:.04em;
+
+  margin-left:-.04em;
+
+  text-shadow:
+    0 0 48px
+    rgba(95,200,245,.28);
+}
+
+
+.tagline{
+
+  font-family:'Chakra Petch',sans-serif;
+
+  font-weight:400;
+
+  font-size:
+    clamp(
+      1rem,
+      2.6vw,
+      1.35rem
+    );
+
+  color:var(--dim);
+
+  letter-spacing:.06em;
+
+  margin-top:16px;
+
+  padding-top:16px;
+
+  border-top:
+    1px solid
+    rgba(95,200,245,.22);
+
+  max-width:40ch;
+}
+
+
+/* =========================================================
+   COMPTE À REBOURS
+   ========================================================= */
+
+.panel{
+
+  margin-top:44px;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      rgba(14,23,36,.86),
+      rgba(14,23,36,.6)
+    );
+
+  border:
+    1px solid
+    rgba(95,200,245,.28);
+
+  clip-path:var(--bevel);
+
+  padding:
+    30px
+    clamp(16px, 4vw, 40px);
+
+  backdrop-filter:blur(6px);
+
+  max-width:760px;
+
+  transition:
+    border-color .6s ease;
+}
+
+
+.panel.final{
+
+  border-color:
+    rgba(232,163,61,.55);
+}
+
+
+/* =========================================================
+   CHIFFRES
+   ========================================================= */
+
+.clock{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+}
+
+
+.unit{
+
+  text-align:center;
+
+  padding:4px 6px;
+
+  border-left:
+    1px solid
+    rgba(95,200,245,.18);
+}
+
+
+.unit:first-child{
+
+  border-left:0;
+}
+
+
+.unit b{
+
+  display:block;
+
+  font-family:'Chakra Petch',sans-serif;
+
+  font-weight:600;
+
+  font-variant-numeric:tabular-nums;
+
+  font-size:
+    clamp(
+      2.4rem,
+      8vw,
+      4.6rem
+    );
+
+  line-height:1;
+
+  color:var(--bone);
+}
+
+
+.panel.final .unit b{
+
+  color:var(--amber);
+}
+
+
+.unit span{
+
+  display:block;
+
+  margin-top:10px;
+
+  font-size:.78rem;
+
+  letter-spacing:.1em;
+
+  color:var(--dim);
+}
+
+
+/* =========================================================
+   INFORMATIONS DATE
+   ========================================================= */
+
+.launch{
+
+  margin-top:26px;
+
+  padding-top:18px;
+
+  border-top:
+    1px solid
+    rgba(95,200,245,.16);
+
+  font-size:.95rem;
+
+  color:var(--dim);
+}
+
+
+.launch strong{
+
+  color:var(--bone);
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   MESSAGE APRÈS OUVERTURE
+   ========================================================= */
+
+.open{
+
+  display:none;
+
+  font-family:'Chakra Petch',sans-serif;
+
+  font-size:
+    clamp(
+      1.6rem,
+      5vw,
+      2.6rem
+    );
+
+  color:var(--amber);
+
+  line-height:1.2;
+}
+
+
+.is-open .clock,
+.is-open .launch{
+
+  display:none;
+}
+
+
+.is-open .open{
+
+  display:block;
+}
+
+
+/* =========================================================
+   PIED DE PAGE
+   ========================================================= */
+
+footer{
+
+  border-top:
+    1px solid
+    rgba(95,200,245,.14);
+
+  padding:26px 0 40px;
+
+  color:var(--dim);
+
+  font-size:.86rem;
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:12px;
+
+  justify-content:space-between;
+}
+
+
+footer code{
+
+  font-family:'Chakra Petch',sans-serif;
+
+  color:var(--bone);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:620px){
+
+  .clock{
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    row-gap:22px;
+  }
+
+
+  .unit:nth-child(odd){
+
+    border-left:0;
+  }
+
+
+  .unit:nth-child(n+3){
+
+    padding-top:22px;
+
+    border-top:
+      1px solid
+      rgba(95,200,245,.14);
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+  *{
+
+    animation:none !important;
+
+    transition:none !important;
+  }
+
+
+  html{
+
+    scroll-behavior:auto;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     FOND
+     ======================================================= -->
+
+<div class="stars"></div>
+
+<div class="sky"></div>
+
+
+<!-- =======================================================
+     CONTENU PRINCIPAL
+     ======================================================= -->
+
+<header class="hero">
+
+  <div class="wrap">
+
+
+    <!-- TITRE -->
+
+    <h1 class="mark">
+      FRANCE<br>
+      ROLEPLAY
+    </h1>
+
+
+    <!-- SOUS-TITRE -->
+
+    <p class="tagline">
+      Reprise de la Direction<br>
+      Brigade Municipale de Paris.
+    </p>
+
+
+    <!-- COMPTE À REBOURS -->
+
+    <section
+      class="panel"
+      id="panel"
+      aria-live="polite"
+    >
+
+      <div class="clock">
+
+
+        <div class="unit">
+
+          <b id="d">
+            00
+          </b>
+
+          <span>
+            jours
+          </span>
+
+        </div>
+
+
+        <div class="unit">
+
+          <b id="h">
+            00
+          </b>
+
+          <span>
+            heures
+          </span>
+
+        </div>
+
+
+        <div class="unit">
+
+          <b id="m">
+            00
+          </b>
+
+          <span>
+            minutes
+          </span>
+
+        </div>
+
+
+        <div class="unit">
+
+          <b id="s">
+            00
+          </b>
+
+          <span>
+            secondes
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- DATE DE REPRISE -->
+
+      <p class="launch">
+
+        Reprise de la Direction le
+
+        <strong>
+          vendredi 25 septembre 2026 à 20h00
+        </strong>
+
+        (heure de Paris).
+
+      </p>
+
+
+      <!-- MESSAGE APRÈS LE COMPTE À REBOURS -->
+
+      <p class="open">
+
+        La Direction reprend son activité.
+
+        <br>
+
+        Préparez-vous à reprendre le service.
+
+      </p>
+
+
+    </section>
+
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+
+<footer>
+
+  <div
+    class="wrap"
+    style="
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:space-between;
+      width:min(1040px,90vw);
+    "
+  >
+
+
+    <span>
+      FranceRolePlay — Brigade Municipale de Paris
+    </span>
+
+
+    <span>
+
+      Reprise :
+
+      <code>
+        25/09/2026 — 20h00
+      </code>
+
+    </span>
+
+
+  </div>
+
+</footer>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+     ======================================================= -->
+
+<script>
+
+/*
+ * =========================================================
+ * COMPTE À REBOURS
+ * =========================================================
+ *
+ * Date :
+ * 25 septembre 2026
+ * 20h00
+ *
+ * Heure de Paris :
+ * UTC+2 en septembre
+ *
+ * =========================================================
+ */
+
+var cible = new Date(
+  '2026-09-25T20:00:00+02:00'
+).getTime();
+
+
+/*
+ * Éléments HTML
+ */
+
+var elD =
+  document.getElementById('d');
+
+var elH =
+  document.getElementById('h');
+
+var elM =
+  document.getElementById('m');
+
+var elS =
+  document.getElementById('s');
+
+var panel =
+  document.getElementById('panel');
+
+
+/*
+ * Formatage des chiffres
+ */
+
+function deuxChiffres(n){
+
+  return n < 10
+    ? '0' + n
+    : String(n);
+
+}
+
+
+/*
+ * Mise à jour du compteur
+ */
+
+function majCompteur(){
+
+  var reste =
+    cible - Date.now();
+
+
+  /*
+   * La date est atteinte
+   */
+
+  if(reste <= 0){
+
+    panel.classList.add(
+      'is-open'
+    );
+
+    document.title =
+      'FranceRolePlay — Brigade Municipale reprise';
+
+    clearInterval(boucle);
+
+    return;
+  }
+
+
+  /*
+   * Conversion en secondes
+   */
+
+  var totalSecondes =
+    Math.floor(
+      reste / 1000
+    );
+
+
+  /*
+   * Calcul du temps restant
+   */
+
+  var jours =
+    Math.floor(
+      totalSecondes / 86400
+    );
+
+
+  var heures =
+    Math.floor(
+      (totalSecondes % 86400) / 3600
+    );
+
+
+  var minutes =
+    Math.floor(
+      (totalSecondes % 3600) / 60
+    );
+
+
+  var secondes =
+    totalSecondes % 60;
+
+
+  /*
+   * Affichage
+   */
+
+  elD.textContent =
+    deuxChiffres(jours);
+
+  elH.textContent =
+    deuxChiffres(heures);
+
+  elM.textContent =
+    deuxChiffres(minutes);
+
+  elS.textContent =
+    deuxChiffres(secondes);
+
+
+  /*
+   * Dernières 24 heures :
+   * passage du compteur en couleur ambre.
+   */
+
+  if(reste < 86400000){
+
+    panel.classList.add(
+      'final'
+    );
+
+  }
+
+}
+
+
+/*
+ * Première mise à jour immédiate
+ */
+
+majCompteur();
+
+
+/*
+ * Mise à jour chaque seconde
+ */
+
+var boucle =
+  setInterval(
+    majCompteur,
+    1000
+  );
+
+</script>
+
+
+</body>
+</html>
+```
